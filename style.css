@@ -1,0 +1,127 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1000px) {
+  body, html {
+    font-size: 15px;
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://images.unsplash.com/photo-1638272181967-7d3772a91265?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
+  background-repeat: no-repeat;
+  padding: 50px 20%;
+}
+
+.chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+@media (max-width: 680px) {
+  .wrapper {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+}
+@media (max-height: 680px) {
+  .wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .chat {
+    gap: 10px;
+  }
+}
+.input {
+  width: 100%;
+  font: inherit;
+  color: rgba(255, 255, 255, 0.8);
+  outline: none;
+  padding: 10px 25px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background 200ms;
+}
+.input:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.messages {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  padding: 10px;
+  scrollbar-width: 5px;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+.messages::-webkit-scrollbar {
+  width: 5px;
+}
+.messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+.messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+.messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+.messages::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.message {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px 25px;
+  max-width: 80%;
+  width: fit-content;
+}
+.message.self {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.08);
+  --dir: 1 !important;
+}
+
+.animate {
+  --dir: -1;
+  animation: message 100ms;
+  z-index: 1;
+}
+
+@keyframes message {
+  from {
+    transform: translate(calc(var(--dir) * 200%), 300px) scale(0);
+  }
+  to {
+    transform: translate(0, 0) scale(1);
+  }
+}
