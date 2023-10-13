@@ -35,7 +35,7 @@ function message(msg, self = false, animate = true) {
     message(text, self, false);
   }))([
   { text: "Hello" },
-  { text: "This is a chat UI with a glassmorphism effect" },
+  { text: "This is a chat UI for THINKERS PRIVATE LIMITED with a glassmorphism effect" },
   { text: "This is an interactive demo — try sending a message!", self: true },
   {
     text:
